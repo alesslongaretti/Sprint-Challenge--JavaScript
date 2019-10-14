@@ -98,14 +98,17 @@ for (let i = 0; i < graduates.length; i++) {
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+// const unisWithUni = [];
 
-for (let i = 0; i < graduates.length; i++) {
-    unisWithUni.push(graduates[i].university.match('Uni'));
-}
+// for (let i = 0; i < graduates.length; i++) {
+//   unisWithUni.push(graduates[i].university.match('Uni'));
+// }
+
+const unisWithUni = graduates.filter(function(universities){
+  return universities.university.match ('Uni');
+})
+
 console.log(unisWithUni);
-
-
 
 
 // ==== ADVANCED Array Methods ====
@@ -130,9 +133,10 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
+
 const displayNames = [];
 zooAnimals.forEach(function(name){
-  displayNames.push(`Name: ${name.animal_name}  Scientific: ${name.scientific_name}`);
+  displayNames.push(`Name: ${name.animal_name}, Scientific: ${name.scientific_name}`);
 });
 console.log(displayNames);
 
@@ -176,3 +180,26 @@ Stretch: If you haven't already, convert your array method callbacks into arrow 
 
 */
 
+// const displayNames = [];
+// zooAnimals.forEach((name) => {
+//   displayNames.push(`Name: ${name.animal_name}  Scientific: ${name.scientific_name}`);
+// });
+// console.log(displayNames);
+
+
+// const lowCaseAnimalNames = zooAnimals.map ((name) => {
+//   return name.animal_name.toLocaleLowerCase();
+// });
+// console.log(lowCaseAnimalNames);
+
+
+// const lowPopulationAnimals = zooAnimals.filter((animalPopulation) => {
+//   return animalPopulation.population < 5;
+// })
+// console.log(lowPopulationAnimals);
+
+
+// const populationTotal = zooAnimals.reduce((total,result) => {
+//   return total +=result.population;
+// }, 0);
+// console.log(populationTotal);
